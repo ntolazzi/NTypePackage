@@ -16,10 +16,6 @@ scan_laser_power
 ----------------
 .. autofunction:: ntypecqed.transmission_experiments.scan_laser_power
 
-pulsed_drive_gaussian
----------------------
-.. autofunction:: ntypecqed.transmission_experiments.pulsed_drive_gaussian
-
 
 Correlation Experiments
 =======================
