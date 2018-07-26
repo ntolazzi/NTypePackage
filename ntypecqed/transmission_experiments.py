@@ -101,27 +101,6 @@ def scan_laser_power(experiment, start_power, stop_power, observables=None, scan
     return powers, list(map(list, zip(*ob_results)))
 
 
-def pulsed_drive_gaussian(experiment: NTypeExperiment, start_time: float, stop_time: float,
-                          observables: List[Qobj] = None, steps: int = 100,
-                          driving_parameter: Tuple[float] = None) -> List[List[float]]:
-    """Performs a time dependent simulation of a driving pulse via Master Equation
-
-    :param experiment: The experiment on which the time dependent solver is applied
-    :param start_time: Start time for the simulation
-    :param stop_time: Stop time for simulation
-    :param observables: List of observables for which the simulation is done
-    :param steps: Number of time steps
-    :param driving_parameter: Tuple with eta, sigma and t0 of gaussian pulse
-    :return: Lists of bla bla
-    """
-
-    time_list = np.linspace(start_time, stop_time, steps)
-    if observables is None:
-        observables = experiment.environment.n_a, experiment.environment.n_b
-    H0 = experiment.full_undriven_hamiltonian
-    pulse = 'eta*(1/(sigma*sqrt(2*np.pi)))*exp(-0.5*((t-t0)/sigma)**2)'
-    # H = [H0, [drive, pulse]]
-
 
 def solve_me(experiment: NTypeExperiment, starting_state: Qobj, hamiltonian: Qobj,
              time_dependent_parameters: Dict = None, start_time: float = 0.0, stop_time: float = 20.0,
