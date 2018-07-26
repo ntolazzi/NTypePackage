@@ -1,0 +1,278 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Classes &#8212; NTypeCQED 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Functions" href="functions.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="functions.html" title="Functions"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">NTypeCQED 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="classes">
+<h1>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h1>
+<p>Here you’ll find an overview of all classes and their parameters.</p>
+<div class="section" id="hilbertspace">
+<h2>HilbertSpace<a class="headerlink" href="#hilbertspace" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ntypecqed.hilbertspace.HilbertSpace">
+<em class="property">class </em><code class="descclassname">ntypecqed.hilbertspace.</code><code class="descname">HilbertSpace</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#ntypecqed.hilbertspace.HilbertSpace" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class represents a physical system in which one can do experiments</p>
+<p>This class sets the stage for all the following experiments(simulations) and provides
+all needed operators and constants</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>N_a</strong> (<em>int</em>) – Size of Hilberspace in first cavity mode (3)</li>
+<li><strong>N_b</strong> (<em>int</em>) – Size of Hilbertspace in second cavity mode (3)</li>
+<li><strong>kappa_a</strong> (<em>float</em>) – Decay rate of first cavity mode (4.1*2*pi)</li>
+<li><strong>kappa_b</strong> (<em>float</em>) – Decay rate of second cavity mode (2.9*2*pi)</li>
+<li><strong>gamma_d1</strong> (<em>float</em>) – Decay rate of D1 excited state (6.07*2*pi)</li>
+<li><strong>gamma_d2</strong> (<em>float</em>) – Decay rate of D2 excited state (5.75*2*pi)</li>
+<li><strong>gamma_dephasing</strong> (<em>float</em>) – Dephasing rate between the two ground states (0.1*2*pi)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="ntypeexperiment">
+<h2>NTypeExperiment<a class="headerlink" href="#ntypeexperiment" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ntypecqed.simulation.NTypeExperiment">
+<em class="property">class </em><code class="descclassname">ntypecqed.simulation.</code><code class="descname">NTypeExperiment</code><span class="sig-paren">(</span><em>system_parameters</em>, <em>environment=HilbertSpace(N_a=3</em>, <em>N_b=3</em>, <em>kappa_a=4.1</em>, <em>kappa_b=2.9</em>, <em>gamma_d1=5.75</em>, <em>gamma_d2=6.07</em>, <em>dephasing=0.128)</em><span class="sig-paren">)</span><a class="headerlink" href="#ntypecqed.simulation.NTypeExperiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the basic simulation class and describes one specific set of parameters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>system_parameters</strong> (<em>dict</em>) – The dictionary with all relevant experimental parameters. 
+Needed parameters are: g_p, g_s, eta_p, eta_s, omega_c, delta_31, delta_42, probe_detuning, signal_detuning, 
+control_detuning.</li>
+<li><strong>environment</strong> (<a class="reference internal" href="#ntypecqed.hilbertspace.HilbertSpace" title="ntypecqed.hilbertspace.HilbertSpace"><em>ntypecqed.hilbertspace.HilbertSpace</em></a>) – The HilbertSpace in which the simulations take place</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ntypecqed.simulation.NTypeExperiment.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ntypecqed.simulation.NTypeExperiment.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a copy of this instance of NTypeExperiment for further usages</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A deep copy of the NTypeExperiment</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ntypecqed.simulation.NTypeExperiment" title="ntypecqed.simulation.NTypeExperiment">NTypeExperiment</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ntypecqed.simulation.NTypeExperiment.driven_hamiltonian">
+<code class="descname">driven_hamiltonian</code><a class="headerlink" href="#ntypecqed.simulation.NTypeExperiment.driven_hamiltonian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property that returns the full system Hamiltonian for the current parameters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The full system’s Hamiltonian including drive</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">qutip.QObj</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ntypecqed.simulation.NTypeExperiment.eigenstates">
+<code class="descname">eigenstates</code><a class="headerlink" href="#ntypecqed.simulation.NTypeExperiment.eigenstates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property that returns the unsorted Eigenenergies and Eigenstates of the undriven system</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The Eigenenergies and Eigenvectors of the undriven system</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">tuple(eigenvalues, eigenvectors)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ntypecqed.simulation.NTypeExperiment.full_undriven_hamiltonian">
+<code class="descname">full_undriven_hamiltonian</code><a class="headerlink" href="#ntypecqed.simulation.NTypeExperiment.full_undriven_hamiltonian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property that returns the full undriven Hamiltonian for the current parameters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The undriven but otherwise complete system’s Hamiltonian including drive</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">qutip.QObj</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="ntypecqed.simulation.NTypeExperiment.load">
+<em class="property">static </em><code class="descname">load</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#ntypecqed.simulation.NTypeExperiment.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a saved instance of NTypeExperiment</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<em>str</em>) – Filename/Path of the saved instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ntypecqed.simulation.NTypeExperiment.save">
+<code class="descname">save</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#ntypecqed.simulation.NTypeExperiment.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the current instance of NTypeExperiment</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<em>str</em>) – Filename/Path of the saved instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ntypecqed.simulation.NTypeExperiment.sorted_eigenenergies">
+<code class="descname">sorted_eigenenergies</code><a class="headerlink" href="#ntypecqed.simulation.NTypeExperiment.sorted_eigenenergies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property that returns the sorted Eigenenergies of the system.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">An 2d array with sorted Eigenenergies of the form sorted_array[n_p, n_s] with signal 
+and probe photon number</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">2d array</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ntypecqed.simulation.NTypeExperiment.undriven_hamiltonians">
+<code class="descname">undriven_hamiltonians</code><a class="headerlink" href="#ntypecqed.simulation.NTypeExperiment.undriven_hamiltonians" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property that returns the bare and the interaction Hamiltonian for the current parameters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">bare and interaction Hamiltonian in tuple (h_bare, h_inter, h_control)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">tuple(qutip.Qobj)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Classes</a><ul>
+<li><a class="reference internal" href="#hilbertspace">HilbertSpace</a></li>
+<li><a class="reference internal" href="#ntypeexperiment">NTypeExperiment</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="functions.html"
+                        title="previous chapter">Functions</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/classes.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="functions.html" title="Functions"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">NTypeCQED 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Nicolas Tolazzi.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>
